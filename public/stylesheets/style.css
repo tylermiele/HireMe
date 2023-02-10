@@ -20,3 +20,12 @@ h1{
 .nav-link{
   color: #fafafa;
 }
+
+fieldset{
+  border: none;
+  margin: 5px;
+}
+
+label{
+  width: 100px;
+}
