@@ -1,7 +1,34 @@
-<h1>Employer List</h1>
-<a href="/employers/create">Add a New Employer</a>
-<ul>
-    {{#each employers}}
-        <li>{{this.name}}</li>
-    {{/each}}
-</ul>
+<div class="container">
+    <h1>Employer List</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <th>Name</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>Number of Employees</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {{#each employers}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.city}}</td>
+                <td>
+                    {{#if this.contactEmail}}
+                    <a href="mailto:{{this.contactEmail}}">{{this.contactEmail}}</a>
+                    {{/if}}
+                </td>
+                <td>{{this.employees}}</td>
+                <td class="action-btns">
+                    <a href="/employers/details/{{this.id}}" title="View Comments"><i class="fa-solid fa-circle-info"></i></a>
+                    <a href="/employers/edit/{{this.id}}" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="/employers/delete/{{this.id}}" title="Delete" onclick="return confirmDelete();"><i
+                            class="fa-solid fa-circle-xmark"></i></a>
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+    <a class="btn btn-secondary offset-10 mt-2" href="/employers/create">Add a New Employer</a>
+</div>

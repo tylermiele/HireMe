@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Employer List</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <th>Name</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>Number of Employees</th>
+            <th>Comments</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{employer.name}}</td>
+                <td>{{employer.city}}</td>
+                <td>
+                    {{#if employer.contactEmail}}
+                    <a href="mailto:{{employer.contactEmail}}">{{employer.contactEmail}}</a>
+                    {{/if}}
+                </td>
+                <td>{{employer.employees}}</td>
+                <td>{{employer.comments}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-secondary offset-10 mt-2" href="/employers/">Back to List</a>
+</div>

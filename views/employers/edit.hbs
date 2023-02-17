@@ -3,28 +3,30 @@
     <form method="post">
         <fieldset>
             <label class="form-label" for="name">Name: *</label>
-            <input class="form-control" type="text" name="name" id="name" required>
+            <input class="form-control" type="text" name="name" id="name" value="{{employer.name}}" required>
         </fieldset>
         <fieldset>
             <label class="form-label" for="city">City: *</label>
             <select class="form-select" name="city" id="city" required>
                 {{#each cities}}
-                <option>{{this.name}}</option>
+                    {{selectOption this.name ../employer.city}}
                 {{/each}}
             </select>
         </fieldset>
         <fieldset>
             <label class="form-label" for="comments">Comments: </label>
-            <textarea class="form-control" name="comments" id="comments"></textarea>
+            <textarea class="form-control" name="comments" id="comments">{{employer.comments}}</textarea>
         </fieldset>
         <fieldset>
             <label class="form-label" for="contactEmail">Contact Email: </label>
-            <input class="form-control" type="email" name="contactEmail" id="contactEmail">
+            <input class="form-control" type="email" name="contactEmail" id="contactEmail"
+                value="{{employer.contactEmail}}">
         </fieldset>
         <fieldset>
             <label class="form-label" for="employees">Number of Employees: </label>
-            <input class="form-control" type="number" name="employees" id="employees" min="1">
+            <input class="form-control" type="number" name="employees" id="employees" min="1"
+                value="{{employer.employees}}">
         </fieldset>
-        <button class="btn btn-secondary offset-11 mt-2" type="submit">Create</button>
+        <button class="btn btn-secondary offset-11 mt-2" type="submit">Save</button>
     </form>
 </div>

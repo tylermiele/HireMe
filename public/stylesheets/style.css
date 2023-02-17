@@ -4,28 +4,56 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #DB0007;
 }
 
-main{
+main {
   font-family: 'Raleway', sans-serif;
 }
-.navbar-dark{
+
+.navbar-dark {
   background-color: #DB0007;
   padding-left: 20px;
 }
-h1{
+
+h1 {
   color: #063672;
 }
-.nav-link{
+
+.nav-link {
   color: #fafafa;
 }
 
-fieldset{
+fieldset {
   border: none;
   margin: 5px;
 }
 
-label{
+label {
   width: 100px;
+}
+
+table {
+  outline: 0.2rem solid #222;
+  border-radius: 5px;
+}
+
+thead {
+  color: #fafafa;
+  background-color: #063672;
+}
+.action-btns{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+td i{
+  font-size: 1.3rem;
+}
+.fa-circle-xmark {
+  color: #DB0007;
+}
+
+.fa-circle-info{
+  color: #0a520a;
 }

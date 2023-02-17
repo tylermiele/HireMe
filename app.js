@@ -9,7 +9,7 @@ const usersRouter = require('./controllers/users');
 
 //reference new custom controller
 const employersRouter = require('./controllers/employers');
-const citiesRouter =  require('./controllers/cities');
+const citiesRouter = require('./controllers/cities');
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //use dotenv to read .env file with config vars 
-if(process.env.NODE_ENV != 'production'){
+if (process.env.NODE_ENV != 'production') {
   require('dotenv').config();
 }
 
@@ -44,6 +44,16 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/employers', employersRouter);
 app.use('/cities', citiesRouter);
+
+// add hbs extenstion function to select the correct dropdown optio when editing
+const hbs = require('hbs');
+hbs.registerHelper('selectOption', (currentValue, selectedValue) => {
+  let selectedProperty = '';
+  if (currentValue == selectedValue) {
+    selectedProperty = ' selected';
+  }
+  return new hbs.SafeString(`<option${selectedProperty}>${currentValue}</option>`);
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
