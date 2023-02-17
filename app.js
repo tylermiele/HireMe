@@ -9,6 +9,7 @@ const usersRouter = require('./controllers/users');
 
 //reference new custom controller
 const employersRouter = require('./controllers/employers');
+const citiesRouter =  require('./controllers/cities');
 
 const app = express();
 
@@ -42,6 +43,7 @@ mongoose.connect(process.env.CONNECTION_STRING)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/employers', employersRouter);
+app.use('/cities', citiesRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
