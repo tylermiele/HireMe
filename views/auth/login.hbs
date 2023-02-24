@@ -1,6 +1,12 @@
 <div class="container">
     <div class="form-container">
         <h1>Login</h1>
+         {{!-- display error handling --}}
+        {{#if messages}}
+        <p class="alert alert-danger">Invalid login</p>
+        {{else}}
+        <p class="alert alert-secondary">Please login into your account.</p>
+        {{/if}}
         <form method="post">
             <fieldset class="form-group">
                 <label class="form-label" for="username" class="col-2 control-label">Username: *</label>
