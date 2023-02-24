@@ -16,6 +16,7 @@ main {
   padding-left: 20px;
 }
 
+
 h1 {
   color: #063672;
 }
@@ -56,4 +57,7 @@ td i{
 
 .fa-circle-info{
   color: #0a520a;
+}
+.form-container{
+  padding: 1rem;
 }

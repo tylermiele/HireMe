@@ -24,6 +24,10 @@
   <script src="/javascripts/bootstrap.min.js" defer></script>
   <script src="/javascripts/jquery.min.js" defer></script>
   <script src="/javascripts/scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
+        integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+
 </head>
 
 <body>
@@ -33,12 +37,12 @@
     <a class="navbar-brand" href="/">Hire Me!</a>
 
     <!-- Toggler/collapsible Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/about">About</a>
@@ -49,11 +53,13 @@
         <li class="nav-item">
           <a class="nav-link" href="/cities/create">Cities</a>
         </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Register</a>
+          <a class="nav-link" href="/auth/register">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Login</a>
+          <a class="nav-link" href="/auth/login">Login</a>
         </li>
       </ul>
     </div>

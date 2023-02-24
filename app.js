@@ -10,6 +10,7 @@ const usersRouter = require('./controllers/users');
 //reference new custom controller
 const employersRouter = require('./controllers/employers');
 const citiesRouter = require('./controllers/cities');
+const authRouter = require('./controllers/auth');
 
 const app = express();
 
@@ -39,14 +40,36 @@ mongoose.connect(process.env.CONNECTION_STRING)
     console.log('Connection to MongoDB failed.')
   });
 
+// passport auth config
+const passport = require('passport');
+const session = require('express-session');
+
+app.use(session({
+  secret: process.env.PASSPORT_SECRET,
+  resave: true,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+const User = require('./models/user');
+passport.use(User.createStrategy());
+
+//read / write session vars
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // map requests
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/employers', employersRouter);
 app.use('/cities', citiesRouter);
+app.use('/auth', authRouter);
 
 // add hbs extenstion function to select the correct dropdown optio when editing
 const hbs = require('hbs');
+const { initialize } = require('passport');
 hbs.registerHelper('selectOption', (currentValue, selectedValue) => {
   let selectedProperty = '';
   if (currentValue == selectedValue) {
