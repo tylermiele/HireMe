@@ -25,8 +25,8 @@
   <script src="/javascripts/jquery.min.js" defer></script>
   <script src="/javascripts/scripts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
-        integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 
 </head>
 
@@ -37,7 +37,8 @@
     <a class="navbar-brand" href="/">Hire Me!</a>
 
     <!-- Toggler/collapsible Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -55,15 +56,21 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
+        {{#if user}}
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{user.username}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/logout">Logout</a>
+        </li>
+        {{else}}
         <li class="nav-item">
           <a class="nav-link" href="/auth/register">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/auth/login">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/auth/logout">Logout</a>
-        </li>
+        {{/if}}
       </ul>
     </div>
   </nav>

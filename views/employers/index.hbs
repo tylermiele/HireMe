@@ -6,7 +6,11 @@
             <th>City</th>
             <th>Email</th>
             <th>Number of Employees</th>
+            {{#if user}}
             <th>Actions</th>
+            {{else}}
+            <th>Comments</th>
+            {{/if}}
         </thead>
         <tbody>
             {{#each employers}}
@@ -16,19 +20,26 @@
                 <td>
                     {{#if this.contactEmail}}
                     <a href="mailto:{{this.contactEmail}}">{{this.contactEmail}}</a>
+                    {{else}}
+                    Email not provided.
                     {{/if}}
                 </td>
                 <td>{{this.employees}}</td>
                 <td class="action-btns">
-                    <a href="/employers/details/{{this.id}}" title="View Comments"><i class="fa-solid fa-circle-info"></i></a>
-                    <a href="/employers/edit/{{this.id}}" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a href="/employers/delete/{{this.id}}" title="Delete" onclick="return confirmDelete();"><i
+                    <a href="/employers/details/{{this._id}}" title="View Comments"><i
+                            class="fa-solid fa-circle-info"></i></a>
+                    {{#if ../user}}
+                    <a href="/employers/edit/{{this._id}}" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="/employers/delete/{{this._id}}" title="Delete" onclick="return confirmDelete();"><i
                             class="fa-solid fa-circle-xmark"></i></a>
+                    {{/if}}
                 </td>
             </tr>
             {{/each}}
 
         </tbody>
     </table>
+    {{#if user}}
     <a class="btn btn-secondary offset-10 mt-2" href="/employers/create">Add a New Employer</a>
+    {{/if}}
 </div>

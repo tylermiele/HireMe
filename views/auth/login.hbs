@@ -1,25 +1,34 @@
 <div class="container">
     <div class="form-container">
         <h1>Login</h1>
-         {{!-- display error handling --}}
+        {{!-- display error handling --}}
         {{#if messages}}
-        <p class="alert alert-danger">Invalid login</p>
+        <p class="alert alert-danger">Username or password is incorrect.</p>
         {{else}}
         <p class="alert alert-secondary">Please login into your account.</p>
         {{/if}}
         <form method="post">
-            <fieldset class="form-group">
-                <label class="form-label" for="username" class="col-2 control-label">Username: *</label>
+            <fieldset class="form-group mb-2">
+                <label class="form-label" for="username" class="col-2 control-label">Username:</label>
                 <input class="form-control" name="username" id="username" required />
             </fieldset>
-            <fieldset class="form-group">
-                <label class="form-label" for="password" class="col-2 control-label">Password: *</label>
+            <fieldset class="form-group mb-2">
+                <div class="flex showHide-container">
+                    <label class="form-label" for="password" class="col-2 control-label">Password:</label>
+                     <div class="text-center">
+                        <i id="showHide" class="fa-solid fa-eye" onclick="showHide();"></i>
+                    </div>
+                </div>
+
                 <input class="form-control" name="password" id="password" type="password" required />
             </fieldset>
-            <fieldset class="form-group">
-                <button class="btn btn-secondary offset-11 mt-2">Login</button>
-                <hr />
-                Need an account? <a href="/auth/register" title="Register">Register</a>
+            <fieldset class="form-group formBtns">
+                <div>
+                    Need an account? <a class="btn btn-secondary mt-2" href="/auth/register">Register</a>
+                </div>
+                <div>
+                    <button class="btn btn-secondary mt-2">Login</button>
+                </div>
             </fieldset>
         </form>
     </div>

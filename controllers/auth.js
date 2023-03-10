@@ -4,7 +4,7 @@ const passport = require('passport');
 const User = require('../models/user');
 
 router.get('/register', (req, res) => {
-    let messages = req.session.messages;
+    let messages = req.session.messages?.message;
     //clear session error message
     req.session.messages = [];
     res.render('auth/register', {

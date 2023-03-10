@@ -23,7 +23,8 @@ router.get('/', (req, res) => {
             console.log(employers);
             res.render('employers/index', {
                 title: 'Employer List',
-                employers: employers
+                employers: employers,
+                user: req.user
             });
         }
     });
@@ -39,7 +40,8 @@ router.get('/create', global.isAuthenticated, (req, res) => {
         } else {
             res.render('employers/create', {
                 cities: cities,
-                title: 'Hire Me | Create Employer'
+                title: 'Create Employer',
+                user: req.user
             });
         };
     }).sort('name');
@@ -80,7 +82,8 @@ router.get('/edit/:_id', global.isAuthenticated, (req, res) => {
                     res.render('employers/edit', {
                         employer: employer,
                         cities: cities,
-                        title: "Hire Me | Edit"
+                        title: "Edit Employer",
+                        user: req.user
                     });
                 };
             }).sort('name');
@@ -112,7 +115,8 @@ router.get('/details/:_id', (req, res) => {
                     res.render('employers/details', {
                         employer: employer,
                         cities: cities,
-                        title: "Hire Me | Details"
+                        title: "Employer Details",
+                        user: req.user
                     });
                 };
             }).sort('name');

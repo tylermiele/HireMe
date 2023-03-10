@@ -21,6 +21,11 @@ h1 {
   color: #063672;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+}
+
 .nav-link {
   color: #fafafa;
 }
@@ -43,21 +48,43 @@ thead {
   color: #fafafa;
   background-color: #063672;
 }
-.action-btns{
+
+.action-btns {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
-td i{
+
+td i {
   font-size: 1.3rem;
 }
+
 .fa-circle-xmark {
   color: #DB0007;
 }
 
-.fa-circle-info{
+.fa-circle-info {
   color: #0a520a;
 }
-.container{
+
+.container {
   padding: 1rem;
+}
+
+.formBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+#showHide {
+  cursor: pointer;
+}
+.showHide-container{
+  justify-content: space-between;
 }
